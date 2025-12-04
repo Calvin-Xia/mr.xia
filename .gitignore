@@ -1,0 +1,24 @@
+# Visual Studio 相关文件
+.vs/
+*.vsidx
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# 编辑器配置
+*.suo
+*.user
+*.swp
+*~
+
+# 日志文件
+*.log
+
+# 临时文件
+tmp/
+temp/

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式指南 - Mr.Xia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 动态背景 -->
+    <div class="bg-img"></div>
+
+    <!-- 页眉导航 -->
+    <header>
+        <nav>
+            <div class="logo">Mr.Xia</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="Works.html">作品</a></li>
+                <li><a href="timetable.html">工具</a></li>
+                <li><a href="statement.html">声明</a></li>
+                <li><a href="styleguide.html">样式指南</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主内容 -->
+    <main>
+        <h1>?? 样式指南</h1>
+        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xl);">
+            本页面展示网站所有设计元素和组件
+        </p>
+
+        <!-- 颜色系统 -->
+        <section>
+            <h2>色彩系统</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md); margin: var(--spacing-lg) 0;">
+                <div style="background: var(--primary-color); color: white; padding: var(--spacing-lg); border-radius: var(--radius-md); text-align: center;">
+                    <div>主色</div>
+                    <small>#6366f1</small>
+                </div>
+                <div style="background: var(--secondary-color); color: white; padding: var(--spacing-lg); border-radius: var(--radius-md); text-align: center;">
+                    <div>辅色</div>
+                    <small>#ec4899</small>
+                </div>
+                <div style="background: var(--accent-color); color: white; padding: var(--spacing-lg); border-radius: var(--radius-md); text-align: center;">
+                    <div>强调色</div>
+                    <small>#f59e0b</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- 标题样式 -->
+        <section style="margin-top: var(--spacing-xl);">
+            <h2>排版系统</h2>
+            <div class="card">
+                <h1>这是一级标题 H1</h1>
+                <h2>这是二级标题 H2</h2>
+                <h3>这是三级标题 H3</h3>
+                <p>这是正文段落。采用系统默认字体，行高1.6，确保良好的可读性。</p>
+                <p class="text-small">这是小号文字，用于次要信息展示。</p>
+            </div>
+        </section>
+
+        <!-- 按钮样式 -->
+        <section style="margin-top: var(--spacing-xl);">
+            <h2>按钮组件</h2>
+            <div class="card">
+                <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                    <button class="btn">主要按钮</button>
+                    <button class="btn btn-secondary">次要按钮</button>
+                    <button class="btn btn-outline">轮廓按钮</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 卡片样式 -->
+        <section style="margin-top: var(--spacing-xl);">
+            <h2>卡片组件</h2>
+            <div class="card">
+                <h3>普通卡片</h3>
+                <p>这是一个标准的卡片组件，带有悬浮动效。鼠标悬停时会有平滑的上浮效果和阴影变化。</p>
+            </div>
+
+            <div class="shadowbox">
+                <h3>阴影盒子</h3>
+                <p>这是一个带渐变顶部装饰的阴影盒子，顶部有流光动画效果。</p>
+            </div>
+        </section>
+
+        <!-- 时间显示器 -->
+        <section style="margin-top: var(--spacing-xl);">
+            <h2>特殊组件</h2>
+            <div class="card">
+                <h3>时间显示器</h3>
+                <div id="currentTime">加载中...</div>
+            </div>
+        </section>
+
+        <!-- 链接样式 -->
+        <section style="margin-top: var(--spacing-xl);">
+            <h2>链接样式</h2>
+            <div class="card">
+                <p>
+                    这是一个 <a href="#">标准链接</a>，具有悬停效果。
+                </p>
+            </div>
+        </section>
+
+        <!-- 间距系统 -->
+        <section style="margin-top: var(--spacing-xl);">
+            <h2>间距系统</h2>
+            <div class="card">
+                <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                    <div style="background: var(--primary-light); padding: var(--spacing-xs); border-radius: var(--radius-sm);">xs - 0.5rem</div>
+                    <div style="background: var(--primary-light); padding: var(--spacing-sm); border-radius: var(--radius-sm);">sm - 1rem</div>
+                    <div style="background: var(--primary-light); padding: var(--spacing-md); border-radius: var(--radius-sm);">md - 1.5rem</div>
+                    <div style="background: var(--primary-light); padding: var(--spacing-lg); border-radius: var(--radius-sm);">lg - 2rem</div>
+                    <div style="background: var(--primary-light); padding: var(--spacing-xl); border-radius: var(--radius-sm);">xl - 3rem</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 返回首页 -->
+        <div style="text-align: center; margin-top: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+            <a href="index.html" class="btn btn-secondary">
+                ← 返回首页
+            </a>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

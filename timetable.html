@@ -1,79 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>计时器</title>
-    <style>
-        #timer {
-            font-size: 24px;
-        }
-    </style>
+    <meta name="description" content="在线计时器工具">
+    <title>计时器 - Mr.Xia</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- 显示计时器 -->
-    <div id="timer">00:00:00</div>
-    <!-- 添加控制按钮 -->
-    <button id="start">开始</button>
-    <button id="pause">暂停</button>
-    <button id="reset">重置</button>
-    <script>
-        let timer = document.getElementById('timer'); // 获取计时器元素
-        let seconds = 0; // 初始化秒数为0
-        let minutes = 0; // 初始化分钟数为0
-        let hours = 0; // 初始化小时数为0
-        let intervalId = null; // 用于存储计时器ID
+    <!-- 动态背景 -->
+    <div class="bg-img"></div>
 
-        // 定义更新计时器的函数
-        function updateTimer() {
-            seconds++; // 每秒秒数加1
-            if (seconds >= 60) { // 如果秒数大于等于60
-                seconds = 0; // 重置秒数为0
-                minutes++; // 分钟数加1
-            }
-            if (minutes >= 60) { // 如果分钟数大于等于60
-                minutes = 0; // 重置分钟数为0
-                hours++; // 小时数加1
-            }
-            // 更新计时器显示的文本
-            timer.textContent = (hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
-        }
+    <!-- 页眉导航 -->
+    <header>
+        <nav>
+            <div class="logo">Mr.Xia</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="Works.html">作品</a></li>
+                <li><a href="timetable.html">工具</a></li>
+                <li><a href="statement.html">声明</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        // 定义开始计时器的函数
-        function startTimer() {
-            if (!intervalId) { // 如果计时器未启动
-                intervalId = setInterval(updateTimer, 1000); // 启动计时器
-                document.getElementById('start').disabled = true; // 禁用开始按钮
-                document.getElementById('pause').disabled = false; // 启用暂停按钮
-            }
-        }
+    <!-- 主内容 -->
+    <main>
+        <section>
+            <h1 style="text-align: center;">在线计时器 ⏱️</h1>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: var(--spacing-xl);">
+                简单实用的在线计时工具
+            </p>
+        </section>
 
-        // 定义暂停计时器的函数
-        function pauseTimer() {
-            if (intervalId) { // 如果计时器已启动
-                clearInterval(intervalId); // 暂停计时器
-                intervalId = null; // 清空计时器ID
-                document.getElementById('start').disabled = false; // 启用开始按钮
-                document.getElementById('pause').disabled = true; // 禁用暂停按钮
-            }
-        }
+        <!-- 计时器卡片 -->
+        <div class="card timer-container">
+            <!-- 时间显示 -->
+            <div id="timer" style="font-size: 4rem; font-weight: 700; font-family: 'Courier New', monospace; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 0.1em;">
+                00:00:00
+            </div>
 
-        // 定义重置计时器的函数
-        function resetTimer() {
-            clearInterval(intervalId); // 停止计时器（如果已启动）
-            intervalId = null; // 清空计时器ID
-            seconds = 0; // 重置秒数为0
-            minutes = 0; // 重置分钟数为0
-            hours = 0; // 重置小时数为0
-            timer.textContent = '00:00:00'; // 更新计时器显示的文本
-            document.getElementById('start').disabled = false; // 启用开始按钮
-            document.getElementById('pause').disabled = true; // 禁用暂停按钮
-        }
+            <!-- 控制按钮 -->
+            <div class="timer-controls" style="display: flex; gap: var(--spacing-sm);">
+                <button id="start" class="btn">
+                    ▶️ 开始
+                </button>
+                <button id="pause" class="btn btn-secondary">
+                    ⏸️ 暂停
+                </button>
+                <button id="reset" class="btn btn-outline">
+                    🔄 重置
+                </button>
+            </div>
 
-        // 绑定按钮事件
-        document.getElementById('start').addEventListener('click', startTimer);
-        document.getElementById('pause').addEventListener('click', pauseTimer);
-        document.getElementById('reset').addEventListener('click', resetTimer);
-    </script>
+            <!-- 使用说明 -->
+            <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: rgba(99, 102, 241, 0.05); border-radius: var(--radius-md); text-align: center;">
+                <p class="text-small">
+                    💡 提示：点击"开始"按钮开始计时，"暂停"暂停计时，"重置"清零计时器
+                </p>
+            </div>
+        </div>
+
+        <!-- 功能说明 -->
+        <div class="shadowbox" style="margin-top: var(--spacing-xl);">
+            <h3>✨ 功能特点</h3>
+            <ul style="list-style: none; padding: 0; margin-top: var(--spacing-md);">
+                <li style="padding: var(--spacing-sm) 0; color: var(--text-secondary);">
+                    ✓ 精确到秒的计时功能
+                </li>
+                <li style="padding: var(--spacing-sm) 0; color: var(--text-secondary);">
+                    ✓ 支持暂停和继续计时
+                </li>
+                <li style="padding: var(--spacing-sm) 0; color: var(--text-secondary);">
+                    ✓ 一键重置计时器
+                </li>
+                <li style="padding: var(--spacing-sm) 0; color: var(--text-secondary);">
+                    ✓ 简洁美观的界面设计
+                </li>
+            </ul>
+        </div>
+
+        <!-- 返回首页 -->
+        <div style="text-align: center; margin-top: var(--spacing-xl);">
+            <a href="index.html" class="btn btn-secondary">
+                ← 返回首页
+            </a>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>

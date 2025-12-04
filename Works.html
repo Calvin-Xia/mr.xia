@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<meta charset="utf-8">
-	<title>Mr.Xia——个人作品</title>
-	<link rel="stylesheet" href="template">
-	<style type="text/css">a {text-decoration: none}
-		div {
-      width: 200px;
-      padding: .5rem;
-      margin: 1rem auto;
-    }
-
-    .indent {
-      text-indent: 2em;
-    }
-	
-    .negative-indent {
-      text-indent: -2em;
-    }
-
-	.shadowbox {
-      width: auto;
-      border: 1px solid #333;
-      box-shadow: 8px 8px 8px #444;
-      padding: 8px 12px auto;
-      background-image: linear-gradient(18deg, #fff, #ddd 40%, #ccc);
-    }
-
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mr.Xia的个人作品展示">
+    <title>Mr.Xia - 个人作品</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="bg-img"></div>
-	<header>Mr.Xia 个人作品 <a href="index.html">首页</a> <a href="Works.html">作品</a></header>
-	<main>
-		<h1>Mr.Xia——个人作品</h1>
-        <p class="small">（若任意链接失效，请联系作者2383451069@qq.com）(已隐藏)</p>
-		<!-- <div class="shadowbox">
-           <h2 class="small"><font color="black">1.指纹验证（使用FusionApp2.0编写）</font></h2>
-           <p><font color="black">下载地址：<a href="https://wwc.lanzouy.com/b01vnfx5e" target="_blank"><font color="blue">蓝奏云</font></a> 密码：AbCd</font></p>
-		   <p class="small"><font color="blue"><a href="https://note.youdao.com/s/DYKlxcKA" target="_blank">更新日志</a></font></p>
-		</div> -->
-	</main>
+    <!-- 动态背景 -->
+    <div class="bg-img"></div>
+
+    <!-- 页眉导航 -->
+    <header>
+        <nav>
+            <div class="logo">Mr.Xia</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="Works.html">作品</a></li>
+                <li><a href="timetable.html">工具</a></li>
+                <li><a href="statement.html">声明</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主内容 -->
+    <main>
+        <section>
+            <h1>个人作品展示 🎨</h1>
+            <p class="text-small" style="margin-bottom: var(--spacing-xl);">
+                （若任意链接失效，请联系作者）
+            </p>
+        </section>
+
+        <!-- 作品列表 -->
+        <section>
+            <div class="shadowbox">
+                <h2 style="text-align: center; color: var(--text-primary);">
+                    作品陆续更新中...
+                </h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-top: var(--spacing-md);">
+                    敬请期待更多精彩内容 ✨
+                </p>
+            </div>
+
+            <!-- 示例作品卡片（可取消注释） -->
+            
+            <div class="card">
+                <h3>📱 指纹验证应用</h3>
+                <p style="color: var(--text-secondary); margin: var(--spacing-sm) 0;">
+                    使用 FusionApp 2.0 编写的指纹验证应用
+                </p>
+                <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-md);">
+                    <a href="#" target="_blank" class="btn">
+                        下载应用
+                    </a>
+                    <a href="#" target="_blank" class="btn btn-outline">
+                        查看更新日志
+                    </a>
+                </div>
+            </div>
+            -->
+        </section>
+
+        <!-- 返回首页 -->
+        <div style="text-align: center; margin-top: var(--spacing-xl);">
+            <a href="index.html" class="btn btn-secondary">
+                ← 返回首页
+            </a>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>

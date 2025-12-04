@@ -1,56 +1,83 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mr.Xia——个人小站</title>
-	<link rel="stylesheet" href="template">
-	<style type="text/css">a {text-decoration: none}
-	div {
-      width: 400px;
-      padding: .5rem;
-      margin: 1rem auto;
-    }
-
-    .indent {
-      text-indent: 2em;
-    }
-	
-    .negative-indent {
-      text-indent: -2em;
-    }
-
-	.shadowbox {
-      width: auto;
-      border: 1px solid #333;
-      box-shadow: 100px 100px 50px #444;
-      padding: 100px 150px;
-      background-image: linear-gradient(18deg, #fff, #ddd 40%, #ccc);
-    }
-	
-	</style>
-    <script src="script.js" defer></script> <!-- 引入JavaScript文件 -->  
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mr.Xia的个人网站 - 展示个人作品与创意">
+    <meta name="keywords" content="Mr.Xia, 个人网站, 作品集">
+    <meta name="author" content="Mr.Xia">
+    <title>Mr.Xia - 个人小站</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="bg-img"></div>
-	<header>Mr.Xia 我的网站  <a href="index.html">首页 </a> <a href="Works.html">作品 </a></header>
-	<main>
-		<h1>Hello, World!</h1>
-		<h2>欢迎来到Mr.Xia的个人网站</h2>
-		<p class="16px">本网站由<a href="https://host.retiehe.com/" target="_blank">热铁盒网页托管</a></p>
-        <h2><a href="Works.html">个人作品</a></h2>
-		<h2><a href="statement.html">声明</a></h2>
-		<div id="currentTime">加载时间...</div> <!-- 用来显示时间的元素 -->  
-	    <style>  
-        .currentTime {  
-             width: 1000px; /* 设置宽度为1000像素 */  
-             border: 100px solid black; /* 只是为了更好地看到div的边界 */
-			 float: auto;
-			 display: flex
-	    }  
-        </style>
-		
-	</main>
+    <!-- 动态背景 -->
+    <div class="bg-img"></div>
+
+    <!-- 页眉导航 -->
+    <header>
+        <nav>
+            <div class="logo">Mr.Xia</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="Works.html">作品</a></li>
+                <li><a href="timetable.html">工具</a></li>
+                <li><a href="statement.html">声明</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主内容 -->
+    <main>
+        <section class="hero">
+            <h1>Hello, World! 👋</h1>
+            <h2>欢迎来到 Mr.Xia 的个人网站</h2>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); margin-top: var(--spacing-md);">
+                这里记录我的学习历程、创意作品和技术探索
+            </p>
+        </section>
+
+        <!-- 时间显示卡片 -->
+        <div class="card">
+            <div id="currentTime">加载中...</div>
+        </div>
+
+        <!-- 快速导航 -->
+        <section style="margin-top: var(--spacing-xl);">
+            <h2 style="margin-bottom: var(--spacing-md);">快速导航</h2>
+            
+            <div class="card">
+                <h3>📂 个人作品</h3>
+                <p>查看我的创意作品和项目成果</p>
+                <a href="Works.html" class="btn" style="margin-top: var(--spacing-sm);">查看作品</a>
+            </div>
+
+            <div class="card">
+                <h3>🛠️ 实用工具</h3>
+                <p>在线计时器等实用小工具</p>
+                <a href="timetable.html" class="btn btn-secondary" style="margin-top: var(--spacing-sm);">使用工具</a>
+            </div>
+
+            <div class="card">
+                <h3>📋 网站声明</h3>
+                <p>了解网站相关声明与说明</p>
+                <a href="statement.html" class="btn btn-outline" style="margin-top: var(--spacing-sm);">查看声明</a>
+            </div>
+        </section>
+
+        <!-- 站点信息 -->
+        <section class="shadowbox" style="margin-top: var(--spacing-xl);">
+            <h3>关于本站</h3>
+            <p class="indent">
+                本网站由 <a href="https://host.retiehe.com/" target="_blank" rel="noopener">热铁盒网页托管</a> 提供服务支持。
+                采用现代化简约设计风格，注重用户体验与视觉美感。
+            </p>
+            <p class="indent">
+                感谢您的访问，祝您浏览愉快！ 😊
+            </p>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
