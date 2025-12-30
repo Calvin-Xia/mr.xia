@@ -328,13 +328,13 @@ const PageAnimations = {
      * 添加滚动动画
      */
     addScrollAnimations() {
-        // 只对shadowbox元素应用动画，避免与card元素冲突
-        // card元素已经通过其父级section获得了动画
-        document.querySelectorAll('.shadowbox').forEach((element, index) => {
+        // 只对shadowbox元素应用动画，排除markdown-container
+        // 避免与Markdown渲染产生冲突
+        document.querySelectorAll('.shadowbox:not(.markdown-container)').forEach((element, index) => {
             // 延迟添加动画，确保元素已渲染
             setTimeout(() => {
                 element.classList.add('fade-in-up');
-            }, index * 150);
+            }, index * 150 + 500);
         });
     }
 };

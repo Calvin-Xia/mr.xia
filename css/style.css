@@ -636,3 +636,292 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
 }
+
+/* ===== Markdown渲染样式 ===== */
+.markdown-container {
+    margin-top: var(--spacing-lg);
+}
+
+.markdown-content {
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: opacity 0.3s ease;
+}
+
+.markdown-content.loading {
+    opacity: 0.7;
+}
+
+/* 图片备注文本样式 */
+.image-caption {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+/* Markdown内容样式 */
+.markdown-content h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.markdown-content h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.markdown-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.markdown-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: var(--spacing-md) 0 var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.markdown-content h5 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: var(--spacing-sm) 0 var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.markdown-content h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: var(--spacing-sm) 0 var(--spacing-xs);
+    color: var(--text-secondary);
+}
+
+.markdown-content p {
+    margin: var(--spacing-md) 0;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.markdown-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.markdown-content a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.markdown-content strong {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.markdown-content em {
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.markdown-content code {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+    padding: 0.2em 0.4em;
+    border-radius: var(--radius-sm);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.markdown-content pre {
+    background: #1e1e1e;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+}
+
+.markdown-content pre code {
+    background: transparent;
+    padding: 0;
+    color: #e6edf3;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-lg);
+}
+
+.markdown-content li {
+    margin: var(--spacing-xs) 0;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.markdown-content ul ul,
+.markdown-content ol ol,
+.markdown-content ul ol,
+.markdown-content ol ul {
+    margin: var(--spacing-xs) 0;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    background: rgba(99, 102, 241, 0.05);
+    color: var(--text-secondary);
+}
+
+.markdown-content blockquote blockquote {
+    border-left-color: var(--secondary-color);
+    margin-left: var(--spacing-sm);
+}
+
+.markdown-content hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin: var(--spacing-xl) 0;
+}
+
+.markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+    display: block;
+}
+
+.markdown-content th,
+.markdown-content td {
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+}
+
+.markdown-content th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.markdown-content tr:nth-child(even) {
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.markdown-content tr:hover {
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.markdown-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: var(--spacing-md) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.markdown-content input[type="checkbox"] {
+    margin-right: var(--spacing-xs);
+    cursor: pointer;
+}
+
+.markdown-content details {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.markdown-content summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast);
+}
+
+.markdown-content summary:hover {
+    background: rgba(99, 102, 241, 0.1);
+}
+
+/* KaTeX数学公式样式 */
+.markdown-content .katex {
+    font-size: 1.1em;
+}
+
+.markdown-content .katex-display {
+    margin: var(--spacing-md) 0;
+    overflow-x: auto;
+    padding: var(--spacing-sm);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .markdown-content h1 {
+        font-size: 1.875rem;
+    }
+
+    .markdown-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .markdown-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .markdown-content table {
+        font-size: 0.9em;
+    }
+
+    .markdown-content th,
+    .markdown-content td {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .markdown-content {
+        padding: var(--spacing-md);
+    }
+
+    .markdown-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .markdown-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .markdown-content pre {
+        padding: var(--spacing-sm);
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+        padding-left: var(--spacing-md);
+    }
+}

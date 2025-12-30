@@ -6,6 +6,13 @@
     <meta name="description" content="Mr.Xia个人网站声明">
     <title>网站声明 - Mr.Xia</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- 引入Markdown渲染相关库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/11.1.1/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 </head>
 <body>
     <!-- 动态背景 -->
@@ -32,6 +39,19 @@
                 最后更新时间：2025年5月23日
             </p>
         </section>
+
+        <!-- Markdown展示框 -->
+        <div class="shadowbox markdown-container">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">
+                📝 公告声明
+            </h2>
+
+            <!-- 渲染结果 -->
+            <div id="markdown-output" class="markdown-content">
+                <p style="text-align: center; color: var(--text-secondary);">加载中...</p>
+            </div>
+        </div>
+
 
         <!-- 声明内容 -->
         <div class="shadowbox">
@@ -89,5 +109,148 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script>
+        // Markdown静态渲染功能
+        const MarkdownRenderer = {
+            init() {
+                this.outputElement = document.getElementById('markdown-output');
+
+                if (!this.outputElement) {
+                    console.error('Markdown output element not found');
+                    return;
+                }
+
+                console.log('MarkdownRenderer initialized');
+
+                // 配置marked选项
+                marked.setOptions({
+                    breaks: true,
+                    gfm: true
+                });
+
+                // 页面加载时自动渲染指定路径的markdown文件
+                this.loadAndRender('storage/2025年度总结/2025年度总结.md');
+            },
+
+            async loadAndRender(filePath) {
+                console.log('Loading markdown file:', filePath);
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const markdownText = await response.text();
+                    console.log('Markdown file loaded, length:', markdownText.length);
+                    this.render(markdownText);
+                } catch (err) {
+                    console.error('Markdown file load error:', err);
+                    this.outputElement.innerHTML = '<p style="color: var(--error-color); text-align: center;">文件加载失败，请确保markdown文件存在</p>';
+                }
+            },
+
+            render(markdownText) {
+                console.log('Rendering markdown...');
+                const html = marked.parse(markdownText);
+                this.outputElement.innerHTML = html;
+                console.log('Markdown rendered, HTML length:', html.length);
+
+                // 渲染数学公式
+                this.renderMath();
+
+                // 高亮代码块
+                this.highlightCode();
+
+                // 处理图片，添加备注文本
+                this.processImages();
+
+                console.log('Markdown rendering complete');
+            },
+
+            renderMath() {
+                try {
+                    renderMathInElement(this.outputElement, {
+                        delimiters: [
+                            {left: '$$', right: '$$', display: true},
+                            {left: '$', right: '$', display: false}
+                        ],
+                        throwOnError: false
+                    });
+                } catch (err) {
+                    console.warn('Math rendering error:', err);
+                }
+            },
+
+            highlightCode() {
+                try {
+                    this.outputElement.querySelectorAll('pre code').forEach((block) => {
+                        hljs.highlightElement(block);
+                    });
+                } catch (err) {
+                    console.warn('Code highlighting error:', err);
+                }
+            },
+
+            processImages() {
+                const flexWrappers = this.outputElement.querySelectorAll('div[style*="flex"]');
+                
+                flexWrappers.forEach(wrapper => {
+                    const flexImages = wrapper.querySelectorAll('img');
+                    
+                    flexImages.forEach(img => {
+                        const altText = img.getAttribute('alt');
+                        if (altText) {
+                            const originalStyle = img.getAttribute('style') || '';
+                            const widthMatch = originalStyle.match(/width:\s*([\d.]+)%/);
+                            const widthPercent = widthMatch ? widthMatch[1] + '%' : 'auto';
+                            
+                            const wrapperDiv = document.createElement('div');
+                            wrapperDiv.style.cssText = `display: flex; flex-direction: column; align-items: center; width: ${widthPercent}; box-sizing: border-box;`;
+                            
+                            img.parentNode.insertBefore(wrapperDiv, img);
+                            wrapperDiv.appendChild(img);
+                            
+                            const imgStyle = originalStyle.replace(/width:\s*[\d.]+%[^;]*;?\s*/g, '').trim();
+                            if (imgStyle) {
+                                img.setAttribute('style', imgStyle);
+                            } else {
+                                img.removeAttribute('style');
+                            }
+                            
+                            const caption = document.createElement('div');
+                            caption.className = 'image-caption';
+                            caption.textContent = altText;
+                            caption.style.marginTop = '4px';
+                            caption.style.marginBottom = '0';
+                            wrapperDiv.appendChild(caption);
+                        }
+                    });
+                });
+                
+                const standaloneImages = this.outputElement.querySelectorAll('img');
+                standaloneImages.forEach(img => {
+                    if (!img.closest('[style*="flex"]')) {
+                        const altText = img.getAttribute('alt');
+                        if (altText && !img.nextElementSibling?.classList.contains('image-caption')) {
+                            const caption = document.createElement('div');
+                            caption.className = 'image-caption';
+                            caption.textContent = altText;
+                            caption.style.marginTop = '4px';
+                            caption.style.marginBottom = '16px';
+                            
+                            if (img.parentNode) {
+                                img.parentNode.insertBefore(caption, img.nextSibling);
+                            }
+                        }
+                    }
+                });
+            }
+        };
+
+        // 使用window.onload确保所有资源加载完成后再渲染
+        window.addEventListener('load', () => {
+            console.log('Window loaded, initializing MarkdownRenderer');
+            MarkdownRenderer.init();
+        });
+    </script>
 </body>
 </html>
