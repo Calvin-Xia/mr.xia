@@ -1,4 +1,4 @@
-# Visual Studio оЮ╧ьнд╪Ч
+# Visual Studio Ф√┤Д╩╤
 .vs/
 *.vsidx
 *.db
@@ -6,19 +6,17 @@
 *.db-wal
 *.sqlite
 
-# о╣мЁнд╪Ч
+# ГЁ╩Г╩÷Ф√┤Д╩╤
 Thumbs.db
 .DS_Store
 
-# ╠Ю╪╜фВеДжц
+# Г╪√Х╬▒Е≥╗Ф√┤Д╩╤
 *.suo
 *.user
 *.swp
 *~
-
-# хуж╬нд╪Ч
 *.log
 
-# аый╠нд╪Ч
+# Д╦╢Ф≈╤Ф√┤Д╩╤
 tmp/
 temp/
